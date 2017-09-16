@@ -2,9 +2,9 @@ package unixcommander;
 import javax.swing.UIManager;
 
 
-public class Main {
-
-	public static void main(String[] args) {
+public class Main extends Thread {
+	
+	public void run() {
 		 try {
         	 UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         	 View theView = new View();
@@ -15,9 +15,11 @@ public class Main {
          }catch (Exception ex) {
         	 ex.printStackTrace();
          }
-		
-		
+	}
 
+	public static void main(String[] args) {
+		Thread t = new Main();
+		t.start();
 	}
 
 }

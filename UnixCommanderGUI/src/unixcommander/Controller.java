@@ -21,7 +21,16 @@ public class Controller {
 		
 		public void actionPerformed(ActionEvent e) {
 			 try {
-				theView.displayResult(theModel.execute(theView.getInput()));
+				String input[] = theView.getInput().split(" ");
+				if (input[0].equals("Fibonacci"))
+				{
+					theView.displayResult(theModel.fibonacci(input));
+				}
+				else
+				{
+					theView.displayResult(theModel.execute(theView.getInput()));
+				}
+				
 				
 			} catch (Exception e1) {
 				e1.printStackTrace();

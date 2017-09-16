@@ -24,7 +24,13 @@ public class Model {
 		}
 
 		return output.toString();
-		
+	}
+	
+	public String fibonacci(String[] input)
+	{
+		Fibonacci f = new Fibonacci();
+		String output = f.toFibonacci(Integer.parseInt(input[1]));
+		return output;
 	}
 
 }
