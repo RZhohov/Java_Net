@@ -27,7 +27,7 @@ public class TCPServer implements Runnable {
 	   }
    
    
-   private static int PORT = 8090;
+   private static int PORT = 8080;
    Socket csocket;
    TCPServer(Socket csocket) {
       this.csocket = csocket;
@@ -51,7 +51,7 @@ public class TCPServer implements Runnable {
   				break;
   			}
   			else {
-  				logger.fine("User executes command " + command);
+  			    logger.fine("User executes command " + command);
   				UnixExecuter cli = new UnixExecuter();
   		  		String response = cli.execute(command);
   		  		pstream.println(response);

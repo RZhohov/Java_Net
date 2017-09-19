@@ -9,8 +9,17 @@ public class UnixExecuter {
 		StringBuffer output = new StringBuffer();
 		Process p;
 		try {
+			if (command.toLowerCase().contains("&&") || command.toLowerCase().contains("|"))
+			{
+				String[] cmd = {"/bin/bash", "-c", command};
+				p = Runtime.getRuntime().exec(cmd);
+				p.waitFor();
+			}
+			else
+			{
 			p = Runtime.getRuntime().exec(command);
 			p.waitFor();
+			}
 			BufferedReader reader =
                             new BufferedReader(new InputStreamReader(p.getInputStream()));
 
